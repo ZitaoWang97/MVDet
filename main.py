@@ -39,10 +39,10 @@ def main(args):
     denormalize = img_color_denormalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
     train_trans = T.Compose([T.Resize([720, 1280]), T.ToTensor(), normalize, ])
     if 'wildtrack' in args.dataset:
-        data_path = os.path.expanduser('~/Data/Wildtrack')
+        data_path = os.path.expanduser('~/PycharmProjects/MVDet/Data/Wildtrack')
         base = Wildtrack(data_path)
     elif 'multiviewx' in args.dataset:
-        data_path = os.path.expanduser('~/Data/MultiviewX')
+        data_path = os.path.expanduser('~/PycharmProjects/MVDet/Data/MultiviewX')
         base = MultiviewX(data_path)
     else:
         raise Exception('must choose from [wildtrack, multiviewx]')

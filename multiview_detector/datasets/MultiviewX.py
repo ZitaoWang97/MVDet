@@ -29,6 +29,8 @@ class MultiviewX(VisionDataset):
     def get_image_fpaths(self, frame_range):
         img_fpaths = {cam: {} for cam in range(self.num_cam)}
         for camera_folder in sorted(os.listdir(os.path.join(self.root, 'Image_subsets'))):
+            if camera_folder == '.DS_Store':
+                continue
             cam = int(camera_folder[-1]) - 1
             if cam >= self.num_cam:
                 continue
